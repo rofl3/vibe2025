@@ -1,4 +1,12 @@
 {
+  "name": "vibe2025-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
   "dependencies": {
     "mysql2": "^3.14.0"
   }
