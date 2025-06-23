@@ -1,7 +1,17 @@
 CREATE DATABASE IF NOT EXISTS todolist;
 USE todolist;
 
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    telegram_id BIGINT,
+    telegram_link_token VARCHAR(255)
+) ENGINE=InnoDB;
+
 CREATE TABLE IF NOT EXISTS items (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    text VARCHAR(255) NOT NULL
-);
+    text VARCHAR(255) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
